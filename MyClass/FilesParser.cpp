@@ -16,14 +16,14 @@ void FilesParser::parser_files_txt() {
                 file->read_file();
 
                 lock_out_data.lock();
-                out_data_m += (L"Имя файла: " + file->get_name_file() + L" Исходная строка: " + file->get_data() + L"\n");
+                out_data_m += (L"РРјСЏ С„Р°Р№Р»Р°: " + file->get_name_file() + L" РСЃС…РѕРґРЅР°СЏ СЃС‚СЂРѕРєР°: " + file->get_data() + L"\n");
 
                 for (auto& separator : file->get_separators()) {
                     std::vector<std::wstring> result;
                     al::split_regex(result, file->get_data(), boost::wregex(separator));
 
                     for (auto& elem : result) {
-                        out_data_m += (L"Файл №" + std::to_wstring(counter_file) + L" Разделитель: \'" + separator + L"\' Подстрока: " + elem + L"\n");
+                        out_data_m += (L"Р¤Р°Р№Р» в„–" + std::to_wstring(counter_file) + L" Р Р°Р·РґРµР»РёС‚РµР»СЊ: \'" + separator + L"\' РџРѕРґСЃС‚СЂРѕРєР°: " + elem + L"\n");
                     }
                 }
 
@@ -40,7 +40,7 @@ void FilesParser::parser_files_txt() {
         out_file->write_file();
     }
     else {
-        assert(false && L"В каталоге нет файлов с расширением .txt!");
-        std::wcout << L"В каталоге нет файлов с расширением .txt!\nВыходной файл не был создан!\n";
+        assert(false && L"Р’ РєР°С‚Р°Р»РѕРіРµ РЅРµС‚ С„Р°Р№Р»РѕРІ СЃ СЂР°СЃС€РёСЂРµРЅРёРµРј .txt!");
+        std::wcout << L"Р’ РєР°С‚Р°Р»РѕРіРµ РЅРµС‚ С„Р°Р№Р»РѕРІ СЃ СЂР°СЃС€РёСЂРµРЅРёРµРј .txt!\nР’С‹С…РѕРґРЅРѕР№ С„Р°Р№Р» РЅРµ Р±С‹Р» СЃРѕР·РґР°РЅ!\n";
     }
 }
